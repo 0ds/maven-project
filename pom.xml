@@ -217,8 +217,7 @@
     <maven>3.0.3</maven>
   </prerequisites>
 
-</project>
-<profiles>
+
         <profile>
             <id>sonar</id>
             <activation>
@@ -229,14 +228,8 @@
                 <sonar.host.url> https://sonarcloud.io/ </sonar.host.url>
 
  <sonar.host.url> https://sonarcloud.io/ </sonar.host.url>
-
-# <!--  <sonar.jdbc.url>your database URL</sonar.jdbc.url>
-#<sonar.jdbc.driver>Your database driver</sonar.jdbc.driver>
-#<sonar.jdbc.username>DB username</sonar.jdbc.username>
-#<sonar.jdbc.password>db password</sonar.jdbc.password>        -->
-
             </properties>
         </profile>
-     </profiles>
+    
 
 </project>
