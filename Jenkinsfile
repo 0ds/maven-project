@@ -15,8 +15,11 @@
       }
        stage('checkstyle'){
           def mvnHome = tool name: 'maven 3.6.0', type: 'maven'
-           sh "${mvnHoe}/bin/mvn checkstyle:checkstyle"
+           sh "${mvnHome}/bin/mvn checkstyle:checkstyle"
           checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
+       }
+        stage('email-notification-pre'){
+          mail bcc: '', body: 'HELLO WORLD', cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY-EMAIL}"
        }
 
    }
