@@ -16,7 +16,7 @@ pipeline {
     {
       steps
       {  
-      def mvnHome = tool name: 'maven 3.6.0', type: 'maven'
+      env mvnHome = tool name: 'maven 3.6.0', type: 'maven'
       sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
       }
     }
