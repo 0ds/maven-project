@@ -11,7 +11,7 @@
       stage('compile-package')
        {
       def mvnHome = tool name: 'maven 3.6.0', type: 'maven'
-      sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
+      sh "${mvnHoe}/bin/mvn -B -DskipTests clean package"
       }
 
    }
