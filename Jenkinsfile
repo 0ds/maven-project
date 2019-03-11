@@ -14,7 +14,7 @@
       sh "${mvnHoe}/bin/mvn -B -DskipTests clean package"
       }
        stage('checkstyle'){
-           sh "${mvnHoe}/bin/mvn checkstyle:checkstyle
+           sh "${mvnHoe}/bin/mvn checkstyle
           checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
        }
 
