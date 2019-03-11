@@ -19,14 +19,14 @@
           checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
        }
         stage('email-notification-pre'){
-          mail bcc: '', body: 'HELLO WORLD', cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY-EMAIL}"
+          mail bcc: '', body: 'HELLO WORLD', cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY_EMAIL}"
        }
 
    }
       
       catch (err) {
        stage('email-notification'){
-          mail bcc: '', body: "${err}", cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY-EMAIL}"
+          mail bcc: '', body: "${err}", cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY_EMAIL}"
        }
       }
    }    
