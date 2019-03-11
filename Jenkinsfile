@@ -12,7 +12,9 @@
       def mvnHome = tool name: 'maven 3.6.0', type: 'maven'
       sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
       }
+    stage('Email-Notification'){
+     mail bcc: '', body: 'file attached', cc: '', from: '', replyTo: '', subject: 'error report', to: 'odd.raj@gmail.com'
     }
-  
+   }
 
 
