@@ -11,10 +11,10 @@
       stage('compile-package')
        {
       def mvnHome = tool name: 'maven 3.6.0', type: 'maven'
-      sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
+      sh "${mvnHome}/bin/mvn  clean package"
       }
        stage('checkstyle'){
-           sh "${mvnHome}/bin/mvn checkstyle"
+           sh "${mvnHome}/bin/mvn checkstyle:checkstyle"
           checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
        }
 
