@@ -17,6 +17,8 @@
    }
       
       catch (err) {
+       stage('email-notification'){
        mail bcc: '', body: "${err}", cc: '', from: '', replyTo: '', subject: 'error report', to: 'odds.raj@gmail.com'
+       }
       }
    }    
