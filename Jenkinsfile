@@ -13,7 +13,7 @@
       sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
       }
     stage('Email-Notification'){
-     mail bcc: '', body: 'file attached', cc: '', from: '', replyTo: '', subject: 'error report', to: 'odds.raj@gmail.com', to: 'odds1.raj@gmail.com'
+     mail bcc: '', body: 'file attached', cc: '', from: '', replyTo: '', subject: 'error report', to: 'odds.raj@gmail.com'
     }
    }
 
