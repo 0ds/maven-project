@@ -4,7 +4,7 @@ properties([parameters([choice(choices: ['master', 'branch1', 'branch2'], descri
  
       stage('SCM checkout')
     {
-      git url: 'https://github.com/0ds/maven-project', branch: "${_B_one,_B_two}"
+      git url: 'https://github.com/0ds/maven-project', branch: "${_B_one}"
     }
       
     //try{
