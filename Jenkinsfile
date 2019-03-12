@@ -1,4 +1,3 @@
-properties([parameters([choice(choices: ['master', 'branch1', 'branch2'], description: 'select branch', name: 'branch_choise')])])
    node{
  
       stage('SCM checkout')
