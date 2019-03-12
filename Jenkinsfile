@@ -1,8 +1,5 @@
 
    node{
-     parameters {
-  choice choices: ['odds.raj@gmail.com, odds1.raj@gmail.com'], description: '', name: '_MY_EMAIL'
-}
  
       stage('SCM checkout')
     {
@@ -22,9 +19,11 @@
           checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
        }
         stage('email-notification-pre'){
-          mail bcc: '', body: 'HELLO WORLD', cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY_EMAIL}"
-       }
+           emailext attachLog: true, body: '$(err)', recipientProviders: [upstreamDevelopers()], subject: '', to: 'odds1.raj@gmail.com'
 
+         // mail bcc: '', body: 'HELLO WORLD', cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY_EMAIL}"
+       }
+       
    }
       
       catch (err) {
