@@ -22,7 +22,7 @@
        }
        }, failFast: true
     */  
-       stage('Sonarqube-Analysis')
+   /*    stage('Sonarqube-Analysis')
        {
       def mvnHome = tool name: 'maven 3.6.0', type: 'maven'
          def sonarHome= tool name: 'sonarqube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
@@ -31,7 +31,7 @@
       sh "${sonarHome}/bin/sonar-scanner"
           }
           }
-    
+    */
      stage('email-notification-pre'){
            emailext attachLog: true, attachmentsPattern: '**/report-task.txt', body: '$(err)', recipientProviders: [upstreamDevelopers()], subject: '', to: 'odds1.raj@gmail.com'
 
