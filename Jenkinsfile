@@ -28,7 +28,7 @@
          def sonarHome= tool name: 'sonarqube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
       
           withSonarQubeEnv('sonarqube') {
-      sh "${sonarHome}/bin/sonar-runner"
+      sh "${sonarHome}/bin/sonar-scanner"
           }
           }
     
