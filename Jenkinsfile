@@ -3,7 +3,7 @@
  
       stage('SCM checkout')
     {
-      git 'https://github.com/0ds/maven-project.git'
+      git url: 'https://github.com/0ds/maven-project', branch: "${_B_one,_B_two}"
     }
       
     //try{
