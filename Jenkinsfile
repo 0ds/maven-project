@@ -5,7 +5,9 @@
     {
       git 'https://github.com/0ds/maven-project.git'
     }
-      
+      stage('WELCOME-NOTE'){
+         echo "branch1"
+      }
     //try{
       
    /*    parallel firstbranch: {
