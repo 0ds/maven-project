@@ -25,8 +25,10 @@
        stage('Sonarqube-Analysis')
        {
       def mvnHome = tool name: 'maven 3.6.0', type: 'maven'
+         def sonarHome= tool name: 'sonarqube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+      
           withSonarQubeEnv('sonarqube') {
-      sh "${mvnHome}/bin/mvn  sonar:sonar"
+      sh "${sonarHome}/bin/sonar-runner"
           }
           }
     
