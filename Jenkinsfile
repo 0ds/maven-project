@@ -34,8 +34,11 @@ properties([parameters([choice(choices: ['master', 'branch1', 'branch2'], descri
           }
     */
      stage('email-notification-pre'){
-           emailext attachLog: true, attachmentsPattern: '**/report-task.txt', body: 'report', recipientProviders: [upstreamDevelopers()], subject: '', to: 'odds1.raj@gmail.com'
-
+        post{
+           always{
+              emailext attachLog: true, attachmentsPattern: '**/report-task.txt', body: 'report', recipientProviders: [upstreamDevelopers()], subject: '', to: 'odds1.raj@gmail.com'
+           }
+        }
          // mail bcc: '', body: 'HELLO WORLD', cc: '', from: '', replyTo: '', subject: 'error report', attachmentsPattern: '**/report-task.txt', to: 'odds1.raj@gmail.com'
         }
       
