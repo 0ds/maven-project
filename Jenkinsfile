@@ -21,6 +21,14 @@
           checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
        }
        }, failFast: true
+      
+       stage('Sonarqube-Analysis')
+       {
+      def mvnHome = tool name: 'maven 3.6.0', type: 'maven'
+          withSonarQubeEnv('sonarqube') {
+      sh "${mvnHome}/bin/mvn  sonar:sonar"
+          }
+          }
     
         stage('email-notification-pre'){
            emailext attachLog: true, body: '$(err)', recipientProviders: [upstreamDevelopers()], subject: '', to: 'odds1.raj@gmail.com'
