@@ -5,9 +5,8 @@
     {
       git 'https://github.com/0ds/maven-project.git'
     }
-      when{
-         allof{
-    //try{
+      
+    try{
       
       stage('compile-package')
        {
@@ -24,14 +23,13 @@
            emailext attachLog: true, body: '$(err)', recipientProviders: [upstreamDevelopers()], subject: '', to: 'odds1.raj@gmail.com'
 
          // mail bcc: '', body: 'HELLO WORLD', cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY_EMAIL}"
-      //  }
-         }
+    
        
    }
       
-    //  catch (err) {
-     //  stage('email-notification'){
-       //   mail bcc: '', body: "${err}", cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY_EMAIL}"
-   //   }
-     // }
+      catch (err) {
+         stage('email-notification'){
+          mail bcc: '', body: "${err}", cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY_EMAIL}"
+      }
+     }
    }    
