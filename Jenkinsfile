@@ -33,5 +33,5 @@
      //  stage('email-notification'){
        //   mail bcc: '', body: "${err}", cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY_EMAIL}"
    //   }
-      }
+     // }
    }    
