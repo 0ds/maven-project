@@ -20,7 +20,7 @@
            sh "${mvnHome}/bin/mvn checkstyle:checkstyle"
           checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
        }
-       }, failFirst: true
+       }, failFast: true
     
         stage('email-notification-pre'){
            emailext attachLog: true, body: '$(err)', recipientProviders: [upstreamDevelopers()], subject: '', to: 'odds1.raj@gmail.com'
