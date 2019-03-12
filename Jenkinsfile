@@ -1,7 +1,8 @@
-parameters {
+
+   node{
+     parameters {
   choice choices: ['odds.raj@gmail.com, odds1.raj@gmail.com'], description: '', name: '_MY_EMAIL'
 }
-   node{
  
       stage('SCM checkout')
     {
