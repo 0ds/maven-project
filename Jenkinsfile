@@ -4,7 +4,7 @@ properties([parameters([choice(choices: ['master', 'branch1', 'branch2'], descri
  
       stage('SCM checkout')
     {
-      git 'https://github.com/0ds/maven-project.git'
+      git url: 'https://github.com/0ds/maven-project', branch: "${_B_one,_B_two}"
     }
       stage('WELCOME-NOTE'){
          echo "branch1"
