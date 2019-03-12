@@ -33,9 +33,9 @@
           }
     */
      stage('email-notification-pre'){
-           emailext attachLog: true, attachmentsPattern: '**/report-task.txt', body: '$(err)', recipientProviders: [upstreamDevelopers()], subject: '', to: 'odds1.raj@gmail.com'
+         //  emailext attachLog: true, attachmentsPattern: '**/report-task.txt', body: '$(err)', recipientProviders: [upstreamDevelopers()], subject: '', to: 'odds1.raj@gmail.com'
 
-         // mail bcc: '', body: 'HELLO WORLD', cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY_EMAIL}"
+          mail bcc: '', body: 'HELLO WORLD', cc: '', from: '', replyTo: '', subject: 'error report', attachmentsPattern: '**/report-task.txt', to: "odds1.raj@gmail.com
         }
       
 //}
