@@ -1,14 +1,6 @@
-#!groovy
-def properties() {
-  properties = ("git ls-remote -t -h https://github.com/0ds/maven-project.git").execute()
- properties.text.readLines().collect { 
-  it.split()[1].replaceAll('refs/heads/', '').replaceAll('refs/tags/', '').replaceAll("\\^\\{\\}", '')
-}
+properties([parameters([choice(choices: ['master', 'branch1', 'branch2'], description: 'select branch', name: 'branch_choise')])])
 
-     
-/*properties([parameters([choice(choices: ['master', 'branch1', 'branch2'], description: 'select branch', name: 'branch_choise')])])
-*/
-   node{
+node{
  
       stage('SCM checkout')
     {
