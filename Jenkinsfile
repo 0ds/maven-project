@@ -1,7 +1,18 @@
-properties([parameters([def gettags = ("git ls-remote -t -h https://github.com/0ds/maven-project.git").execute()
+
+
+#!/usr/bin/env groovy
+  
+import hudson.model.*
+import hudson.EnvVars
+import groovy.json.JsonSlurperClassic
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+import java.net.URL
+
+def gettags = ("git ls-remote -t -h https://github.com/0ds/maven-project.git").execute()
 return gettags.text.readLines().collect { 
   it.split()[1].replaceAll('refs/heads/', '').replaceAll('refs/tags/', '').replaceAll("\\^\\{\\}", '')
-})])])
+}
      
 /*properties([parameters([choice(choices: ['master', 'branch1', 'branch2'], description: 'select branch', name: 'branch_choise')])])
 */
