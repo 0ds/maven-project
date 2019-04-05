@@ -1,5 +1,11 @@
-properties([parameters([choice(choices: ['master', 'branch1', 'branch2'], description: 'select branch', name: 'branch_choise')])])
-
+#!groovy
+@Library('shared') _
+def gettags = ("git ls-remote -t -h https://github.com/0ds/maven-project.git").execute()
+return gettags.text.readLines().collect { 
+  it.split()[1].replaceAll('refs/heads/', '').replaceAll('refs/tags/', '').replaceAll("\\^\\{\\}", '')
+}
+/*properties([parameters([choice(choices: ['master', 'branch1', 'branch2'], description: 'select branch', name: 'branch_choise')])])
+*/
    node{
  
       stage('SCM checkout')
