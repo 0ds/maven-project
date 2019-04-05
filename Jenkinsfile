@@ -1,7 +1,4 @@
 #!groovy
-@Library('shared') _
-
-properties()
 def properties() {
     properties([
        parameters([def gettags = ("git ls-remote -t -h https://github.com/0ds/maven-project.git").execute()
