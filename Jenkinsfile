@@ -1,6 +1,6 @@
 #!groovy
 parameters([def gettags = ("git ls-remote -t -h https://github.com/0ds/maven-project.git").execute()
-gettags.text.readLines().collect { 
+return gettags.text.readLines().collect { 
   it.split()[1].replaceAll('refs/heads/', '').replaceAll('refs/tags/', '').replaceAll("\\^\\{\\}", '')
 }])
 
