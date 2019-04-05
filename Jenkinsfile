@@ -1,9 +1,11 @@
 #!groovy
 gettags()
-parameters([def gettags = ("git ls-remote -t -h https://github.com/0ds/maven-project.git").execute()
-gettags.text.readLines().collect { 
+def gettags() {
+  gettags = ("git ls-remote -t -h https://github.com/0ds/maven-project.git").execute()
+parameters([ gettags.text.readLines().collect { 
   it.split()[1].replaceAll('refs/heads/', '').replaceAll('refs/tags/', '').replaceAll("\\^\\{\\}", '')
 }])
+}
 
      
 /*properties([parameters([choice(choices: ['master', 'branch1', 'branch2'], description: 'select branch', name: 'branch_choise')])])
