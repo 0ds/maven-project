@@ -21,7 +21,7 @@ node{
            sh "${mvnHome}/bin/mvn checkstyle:checkstyle"
           checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
        }
-       }, failFast: true
+       }, failFast: false
       
    /*    stage('Sonarqube-Analysis')
        {
