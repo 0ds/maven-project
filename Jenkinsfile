@@ -12,7 +12,7 @@ node{
        parallel firstbranch: {
        stage('compile-package')
        {
-     def mvnHome = tool name: 'maven 3.6.0', type: 'maven'
+     def mvnHome = tool name: 'maven 3.6.1', type: 'maven'
       sh "${mvnHome}/bin/mvn  -B -DskipTests clean package"
       }
        }, secondbranch: {
