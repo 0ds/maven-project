@@ -7,9 +7,9 @@ node{
        git url: 'https://github.com/0ds/maven-project', branch: "${branch_choise}"
     }
       
-    //try{
+    try{
       
-   /*    parallel firstbranch: {
+       parallel firstbranch: {
        stage('compile-package')
        {
      def mvnHome = tool name: 'maven 3.6.0', type: 'maven'
@@ -22,7 +22,7 @@ node{
           checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
        }
        }, failFast: true
-    */  
+      
    /*    stage('Sonarqube-Analysis')
        {
       def mvnHome = tool name: 'maven 3.6.0', type: 'maven'
@@ -33,18 +33,15 @@ node{
           }
           }
     */
-     stage('email-notification-pre'){
-         //    emailext attachLog: true, attachmentsPattern: '**/report-task.txt', body: 'report', recipientProviders: [upstreamDevelopers()], subject: '', to: 'odds1.raj@gmail.com'
-        
-        
-          mail bcc: '', body: 'HELLO WORLD', cc: '', from: '', replyTo: '', subject: 'error report', to: 'odds1.raj@gmail.com'
+     stage('email-notification-pre'){    
+          mail bcc: '', body: 'Built Pass', cc: '', from: '', replyTo: '', subject: 'Jenkins Report', to: "${_MY_EMAIL}"
         }
+     
+}
       
-//}
-      
-  //    catch (err) {
-    //     stage('email-notification'){
-      //    mail bcc: '', body: "${err}", cc: '', from: '', replyTo: '', subject: 'error report', to: "${_MY_EMAIL}"
-      //}
-     //}
+      catch (err) {
+        stage('email-notification'){
+          mail bcc: '', body: 'Built Fail', cc: '', from: '', replyTo: '', subject: 'Jenkins report', to: "${_MY_EMAIL}"
+      }
+     }
    }    
